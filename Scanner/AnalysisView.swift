@@ -89,7 +89,7 @@ struct AnalysisView: View {
         let imageData = image?.jpegData(compressionQuality: 0.5)
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(barcode + ".jpeg")
         
-        if let result = try? imageData?.write(to: path) {
+        if (try? imageData?.write(to: path)) != nil {
             showSuccessAlert = true
             presentationMode.wrappedValue.dismiss()
         }

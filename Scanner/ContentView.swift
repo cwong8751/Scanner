@@ -23,23 +23,11 @@ struct ContentView: View {
                 
                 // 扫描界面上栏
                 HStack{
-                    Text("将相机对准条码以开始扫描")
-                    
-                    // 点击打开程序用法按钮，用sheet打开新界面
-                    Button("用法") {
-                        presentUsage = true
-                    }
-                    .buttonStyle(DefaultButtonStyle())
-                    .sheet(isPresented: $presentUsage){
-                        UsageView()
-                    }
-                    .onDisappear{
-                        presentUsage = false
-                    }
+                    Text("开始扫描")
                 }
                 
                 if #available(iOS 15.0, *) {
-                    TextField("在此手动键入条码", text: $bc)
+                    TextField("键入条码", text: $bc)
                         .textFieldStyle(.roundedBorder)
                         .padding()
                         .onSubmit {
@@ -62,7 +50,6 @@ struct ContentView: View {
                         }
                     }
                 }
-                //.edgesIgnoringSafeArea(.top)
                 
                 // 初始化条码显示区
                 HStack{
@@ -80,10 +67,11 @@ struct ContentView: View {
                         stopScanner = false
                     }
             }
+            .padding(.top, 20)
+            .ignoresSafeArea(edges: .top)
     }.navigationViewStyle(StackNavigationViewStyle())
 }
 
-// Xcode preview 辅助struct
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

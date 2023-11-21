@@ -16,7 +16,6 @@
 		C317E12527E09EAB00A22663 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317E12427E09EAB00A22663 /* ImagePicker.swift */; };
 		C3E7F76527E09D1200F6B649 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */; };
 		D1FBB79929120DEE001856E0 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = D1FBB79829120DEE001856E0 /* AlertToast */; };
-		D1FBB79B29121170001856E0 /* UsageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBB79A29121170001856E0 /* UsageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 		C3033E1C27DF688A0079D013 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		C317E12427E09EAB00A22663 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
-		D1FBB79A29121170001856E0 /* UsageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,6 @@
 				C3033E1C27DF688A0079D013 /* AnalysisView.swift */,
 				C317E12427E09EAB00A22663 /* ImagePicker.swift */,
 				C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */,
-				D1FBB79A29121170001856E0 /* UsageView.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -166,7 +163,6 @@
 				C3033E1D27DF688A0079D013 /* AnalysisView.swift in Sources */,
 				C317E12527E09EAB00A22663 /* ImagePicker.swift in Sources */,
 				C3E7F76527E09D1200F6B649 /* PhotoCaptureView.swift in Sources */,
-				D1FBB79B29121170001856E0 /* UsageView.swift in Sources */,
 				C3033E0B27DF4F7B0079D013 /* ScannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
