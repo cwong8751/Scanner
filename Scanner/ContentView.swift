@@ -15,6 +15,7 @@ struct ContentView: View {
     @State var checkResult:Bool = false
     @State var presentUsage:Bool = false
     @State var stopScanner:Bool = false
+    @State var showFindServerSheet: Bool = false
     
     // View结构
     var body: some View {
@@ -23,8 +24,21 @@ struct ContentView: View {
                 
                 // 扫描界面上栏
                 HStack{
+                    Spacer()
+                    
                     Text("开始扫描")
+                    Spacer()
+                    
+                    Button(action: {
+                        showFindServerSheet.toggle()
+                    }) {
+                        Text("连接终端")
+                            .buttonStyle(BorderlessButtonStyle())
+                    }
                 }
+                .padding(.top, 15)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
                 
                 if #available(iOS 15.0, *) {
                     TextField("键入条码", text: $bc)
@@ -49,6 +63,7 @@ struct ContentView: View {
                             print(error.localizedDescription)
                         }
                     }
+                    .edgesIgnoringSafeArea(.bottom)
                 }
                 
                 // 初始化条码显示区
@@ -67,14 +82,17 @@ struct ContentView: View {
                         stopScanner = false
                     }
             }
-            .padding(.top, 20)
+            .sheet(isPresented: $showFindServerSheet, content: {
+                FindServerView(serverModel: ServerModel())
+            })
+            .padding(.top, 10)
             .ignoresSafeArea(edges: .top)
-    }.navigationViewStyle(StackNavigationViewStyle())
+        }.navigationViewStyle(StackNavigationViewStyle())
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-}
 }

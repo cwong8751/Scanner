@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		C3033E1D27DF688A0079D013 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3033E1C27DF688A0079D013 /* AnalysisView.swift */; };
 		C317E12527E09EAB00A22663 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317E12427E09EAB00A22663 /* ImagePicker.swift */; };
 		C3E7F76527E09D1200F6B649 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */; };
+		C3FFE1FD2C2A13F20054D14A /* FindServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFE1FC2C2A13F20054D14A /* FindServerView.swift */; };
+		C3FFE1FF2C2A15B80054D14A /* WebSocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFE1FE2C2A15B80054D14A /* WebSocketViewController.swift */; };
+		C3FFE2012C2A16A60054D14A /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFE2002C2A16A60054D14A /* ServerModel.swift */; };
 		D1FBB79929120DEE001856E0 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = D1FBB79829120DEE001856E0 /* AlertToast */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		C3033E1C27DF688A0079D013 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		C317E12427E09EAB00A22663 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
+		C3FFE1FC2C2A13F20054D14A /* FindServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindServerView.swift; sourceTree = "<group>"; };
+		C3FFE1FE2C2A15B80054D14A /* WebSocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketViewController.swift; sourceTree = "<group>"; };
+		C3FFE2002C2A16A60054D14A /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,9 @@
 				C3033E1C27DF688A0079D013 /* AnalysisView.swift */,
 				C317E12427E09EAB00A22663 /* ImagePicker.swift */,
 				C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */,
+				C3FFE1FC2C2A13F20054D14A /* FindServerView.swift */,
+				C3FFE1FE2C2A15B80054D14A /* WebSocketViewController.swift */,
+				C3FFE2002C2A16A60054D14A /* ServerModel.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -159,8 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3FFE1FF2C2A15B80054D14A /* WebSocketViewController.swift in Sources */,
+				C3FFE1FD2C2A13F20054D14A /* FindServerView.swift in Sources */,
 				C3033E0D27DF4F7B0079D013 /* ContentView.swift in Sources */,
 				C3033E1D27DF688A0079D013 /* AnalysisView.swift in Sources */,
+				C3FFE2012C2A16A60054D14A /* ServerModel.swift in Sources */,
 				C317E12527E09EAB00A22663 /* ImagePicker.swift in Sources */,
 				C3E7F76527E09D1200F6B649 /* PhotoCaptureView.swift in Sources */,
 				C3033E0B27DF4F7B0079D013 /* ScannerApp.swift in Sources */,
