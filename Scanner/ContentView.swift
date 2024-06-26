@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CodeScanner
+import AlertToast
 
 struct ContentView: View {
     // 变量声明
@@ -15,26 +16,26 @@ struct ContentView: View {
     @State var checkResult:Bool = false
     @State var presentUsage:Bool = false
     @State var stopScanner:Bool = false
-    @State var showFindServerSheet: Bool = false
+    
+    @ObservedObject var serverModel: ServerModel
+//    @StateObject public var socketIOManager = SocketIOManager()
+    
+    @State private var showErrorAlert: Bool = false
+    @State private var showSuccessAlert: Bool = false
+    @State private var errorString: String = ""
+    @State private var successString: String = ""
+    
     
     // View结构
     var body: some View {
         NavigationView{
             VStack{
-                
                 // 扫描界面上栏
                 HStack{
                     Spacer()
                     
                     Text("开始扫描")
                     Spacer()
-                    
-                    Button(action: {
-                        showFindServerSheet.toggle()
-                    }) {
-                        Text("连接终端")
-                            .buttonStyle(BorderlessButtonStyle())
-                    }
                 }
                 .padding(.top, 15)
                 .padding(.leading, 10)
@@ -51,14 +52,44 @@ struct ContentView: View {
                 
                 // 初始化扫描仪View
                 if(!stopScanner){
-                    CodeScannerView(codeTypes: [.code128], scanMode: .oncePerCode, showViewfinder: true) { response in
+                    CodeScannerView(codeTypes: [.code128, .qr], scanMode: .oncePerCode, showViewfinder: true) { response in
                         switch response {
                         case .success(let result):
                             // 更新条码结果
                             print("Found code: \(result.string)")
-                            bc = result.string
-                            scanSuccess = true
-                            stopScanner = true
+                            
+                            // check code type
+                            if(result.type == .qr && isWebSocketURL(result.string)){
+                                serverModel.serverUrl = result.string
+                                print(serverModel.serverUrl)
+                                
+                                // start connection
+                                DispatchQueue.main.async {
+                                    if let url = URL(string: serverModel.serverUrl) {
+                                        SocketIOManager.shared.connect(url: url) { isConnected in
+                                            if isConnected {
+                                                successString = "连接成功"
+                                                showSuccessAlert = true
+                                                
+                                                // send verification message
+                                                    SocketIOManager.shared.sendMessage(msgType: "message", message: "Hello from " + UIDevice.current.name)
+                                            } else {
+                                                errorString = "连接失败"
+                                                showErrorAlert = true
+                                            }
+                                        }
+                                    } else {
+                                        print("Invalid URL")
+                                    }
+                                }
+                            }
+                            
+                            if(result.type == .code128){
+                                scanSuccess = true
+                                stopScanner = true
+                                bc = result.string
+                            }
+                            
                         case .failure(let error):
                             print(error.localizedDescription)
                         }
@@ -82,17 +113,26 @@ struct ContentView: View {
                         stopScanner = false
                     }
             }
-            .sheet(isPresented: $showFindServerSheet, content: {
-                FindServerView(serverModel: ServerModel())
-            })
+            .toast(isPresenting: $showErrorAlert, duration: 2.0) {
+                AlertToast(displayMode: .alert, type: .error(Color.red), title: errorString)
+            }
+            .toast(isPresenting: $showSuccessAlert, duration: 2.0) {
+                AlertToast(displayMode: .alert, type: .systemImage("checkmark", Color.green), title: successString)
+            }
             .padding(.top, 10)
-            .ignoresSafeArea(edges: .top)
         }.navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    func isWebSocketURL(_ urlString: String) -> Bool {
+        let pattern = #"^wss?:\/\/[\w\-\.]+(:\d+)?(\/[^\s]*)?$"#
+        let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+        let range = NSRange(location: 0, length: urlString.utf16.count)
+        return regex?.firstMatch(in: urlString, options: [], range: range) != nil
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(serverModel: ServerModel())
     }
 }

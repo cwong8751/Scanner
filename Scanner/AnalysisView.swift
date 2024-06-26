@@ -20,11 +20,11 @@ struct AnalysisView: View {
     @State private var imageAddress: UIImage? = nil
     @Environment(\.presentationMode) var presentationMode
     
-    
     var body: some View {
         NavigationView{
             VStack{
                 // 扫描的条码显示
+                Spacer()
                 Text(barcode)
                     .navigationTitle("条码分析")
                     .navigationBarTitleDisplayMode(.inline)
@@ -68,15 +68,27 @@ struct AnalysisView: View {
                 
                 Text(fileStatus)
                 
+                Spacer()
+                
                 if takePhoto {
-                    Button("拍照") {
+                    Button(action: {
                         self.showImagePicker = true
+                    }) {
+                        Text("拍照")
+                            .font(.headline) // Custom font size
+                            .foregroundColor(.white) // Text color
+                            .padding() // Padding around the text
+                            .background(Color.blue) // Background color
+                            .cornerRadius(10) // Rounded corners
+                            .buttonStyle(DefaultButtonStyle())
                     }
-                    .buttonStyle(DefaultButtonStyle())
+                    
+                    Spacer()
                 }
                 
             }.sheet(isPresented: $showImagePicker) {
                 PhotoCaptureView(showImagePicker: $showImagePicker, image: $image)
+                    .ignoresSafeArea(.all)
             }
             .toast(isPresenting: $showSuccessAlert){
                 AlertToast(type: .regular, title: "照片保存成功")
@@ -86,12 +98,25 @@ struct AnalysisView: View {
     }
     
     func saveImage() {
-        let imageData = image?.jpegData(compressionQuality: 0.5)
+        let imageData = image?.jpegData(compressionQuality: 0.7)
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(barcode + ".jpeg")
         
         if (try? imageData?.write(to: path)) != nil {
             showSuccessAlert = true
+            
+            // send both barcode info and image to server
+            let convImage = imageData?.base64EncodedString()
+            
+            
+            print(barcode)
+            //print(convImage!)
+            SocketIOManager.shared.sendMessage(msgType: "barcode", message: barcode)
+            SocketIOManager.shared.sendMessage(msgType: "image", message: convImage!) //TODO: figure out a way to send large images through socket io
+            
             presentationMode.wrappedValue.dismiss()
+        }
+        else{
+            print("save image error")
         }
     }
 }

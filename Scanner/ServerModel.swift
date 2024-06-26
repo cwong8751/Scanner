@@ -2,12 +2,11 @@
 //  ServerModel.swift
 //  Scanner
 //
-//  Created by Carl on 2024/6/24.
+//  Created by Carl on 2024/6/25.
 //
 
-import Combine
+import Foundation
 
 class ServerModel: ObservableObject {
     @Published var serverUrl: String = ""
 }
-

@@ -14,10 +14,10 @@
 		C3033E1B27DF67A00079D013 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = C3033E1A27DF67A00079D013 /* CodeScanner */; };
 		C3033E1D27DF688A0079D013 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3033E1C27DF688A0079D013 /* AnalysisView.swift */; };
 		C317E12527E09EAB00A22663 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C317E12427E09EAB00A22663 /* ImagePicker.swift */; };
+		C37031B42C2BA8CE00BA6F60 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = C37031B32C2BA8CE00BA6F60 /* SocketIO */; };
+		C37031B62C2BAB9B00BA6F60 /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37031B52C2BAB9B00BA6F60 /* ServerModel.swift */; };
+		C37031B82C2BABB100BA6F60 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37031B72C2BABB100BA6F60 /* SocketIOManager.swift */; };
 		C3E7F76527E09D1200F6B649 /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */; };
-		C3FFE1FD2C2A13F20054D14A /* FindServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFE1FC2C2A13F20054D14A /* FindServerView.swift */; };
-		C3FFE1FF2C2A15B80054D14A /* WebSocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFE1FE2C2A15B80054D14A /* WebSocketViewController.swift */; };
-		C3FFE2012C2A16A60054D14A /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFE2002C2A16A60054D14A /* ServerModel.swift */; };
 		D1FBB79929120DEE001856E0 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = D1FBB79829120DEE001856E0 /* AlertToast */; };
 /* End PBXBuildFile section */
 
@@ -30,10 +30,9 @@
 		C3033E1327DF4F7D0079D013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3033E1C27DF688A0079D013 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		C317E12427E09EAB00A22663 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C37031B52C2BAB9B00BA6F60 /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
+		C37031B72C2BABB100BA6F60 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
-		C3FFE1FC2C2A13F20054D14A /* FindServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindServerView.swift; sourceTree = "<group>"; };
-		C3FFE1FE2C2A15B80054D14A /* WebSocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketViewController.swift; sourceTree = "<group>"; };
-		C3FFE2002C2A16A60054D14A /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +42,7 @@
 			files = (
 				C3033E1B27DF67A00079D013 /* CodeScanner in Frameworks */,
 				D1FBB79929120DEE001856E0 /* AlertToast in Frameworks */,
+				C37031B42C2BA8CE00BA6F60 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,9 +76,8 @@
 				C3033E1C27DF688A0079D013 /* AnalysisView.swift */,
 				C317E12427E09EAB00A22663 /* ImagePicker.swift */,
 				C3E7F76427E09D1200F6B649 /* PhotoCaptureView.swift */,
-				C3FFE1FC2C2A13F20054D14A /* FindServerView.swift */,
-				C3FFE1FE2C2A15B80054D14A /* WebSocketViewController.swift */,
-				C3FFE2002C2A16A60054D14A /* ServerModel.swift */,
+				C37031B52C2BAB9B00BA6F60 /* ServerModel.swift */,
+				C37031B72C2BABB100BA6F60 /* SocketIOManager.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -110,6 +109,7 @@
 			packageProductDependencies = (
 				C3033E1A27DF67A00079D013 /* CodeScanner */,
 				D1FBB79829120DEE001856E0 /* AlertToast */,
+				C37031B32C2BA8CE00BA6F60 /* SocketIO */,
 			);
 			productName = Scanner;
 			productReference = C3033E0727DF4F7B0079D013 /* Scanner.app */;
@@ -141,6 +141,7 @@
 			packageReferences = (
 				C3033E1927DF67A00079D013 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				D1FBB79729120DEE001856E0 /* XCRemoteSwiftPackageReference "AlertToast" */,
+				C37031B22C2BA8CE00BA6F60 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = C3033E0827DF4F7B0079D013 /* Products */;
 			projectDirPath = "";
@@ -168,11 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3FFE1FF2C2A15B80054D14A /* WebSocketViewController.swift in Sources */,
-				C3FFE1FD2C2A13F20054D14A /* FindServerView.swift in Sources */,
+				C37031B62C2BAB9B00BA6F60 /* ServerModel.swift in Sources */,
 				C3033E0D27DF4F7B0079D013 /* ContentView.swift in Sources */,
 				C3033E1D27DF688A0079D013 /* AnalysisView.swift in Sources */,
-				C3FFE2012C2A16A60054D14A /* ServerModel.swift in Sources */,
+				C37031B82C2BABB100BA6F60 /* SocketIOManager.swift in Sources */,
 				C317E12527E09EAB00A22663 /* ImagePicker.swift in Sources */,
 				C3E7F76527E09D1200F6B649 /* PhotoCaptureView.swift in Sources */,
 				C3033E0B27DF4F7B0079D013 /* ScannerApp.swift in Sources */,
@@ -322,6 +322,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -349,6 +350,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -386,6 +388,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		C37031B22C2BA8CE00BA6F60 /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		D1FBB79729120DEE001856E0 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/elai950/AlertToast.git";
@@ -401,6 +411,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3033E1927DF67A00079D013 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		C37031B32C2BA8CE00BA6F60 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C37031B22C2BA8CE00BA6F60 /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 		D1FBB79829120DEE001856E0 /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
